@@ -41,9 +41,6 @@
 <?php
 // require './utilities/connection.php';
 require 'setenv.php';
-
-//additional php code for this page goes here
-
 ?>
 
 

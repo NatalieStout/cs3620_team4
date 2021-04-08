@@ -1,5 +1,5 @@
 <?php
-require 'connection.php';
+require 'utilities/connection.php';
 
 //additional php code for this page goes here
 
