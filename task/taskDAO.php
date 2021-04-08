@@ -81,7 +81,7 @@ function createTask($task){
             $task->setTaskName($row["task_name"]);
             $task->setTaskStart($row["task_start"]);
             $task->setTaskEnd($row["task_end"]);
-            $show->setTaskDesc($row["task_description"]);
+            $task->setTaskDesc($row["task_description"]);
             $tasks[$index] = $task;
             $index++;
             }
