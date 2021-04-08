@@ -1,5 +1,5 @@
 <?php
-    require 'setenv.php';
+    //require 'setenv.php';
     require './utilities/connection.php';
 ?>  
 
