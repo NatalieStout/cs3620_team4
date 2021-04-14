@@ -27,6 +27,8 @@ if (isset($_GET['msg'], $_GET['err'])) {
             <p class="has-text-warning ml-3"><strong><?php echo $msg_content; ?></strong></p>
         </div>
     <?php endif; ?>
+
+    
     <form action="authentication.php" method="POST">
         <div class="field">
             <p class="control has-icons-left">
