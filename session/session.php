@@ -1,10 +1,7 @@
 <?php
-// require_once("sessioncheck.php");
 require_once('./user/user.php');
-require_once('./task/task.php');
 
 class session {
-  
   // Methods
   function login($username, $password) {
     $user = new User();
@@ -15,17 +12,14 @@ class session {
       return true;
     }
     else{
-      logout();
+      unset($_SESSION["loggedIn"]);
+      unset($_SESSION["user_id"]);
       return false;
     }
   }
-
-  function logout(){
+  function logout() {
     unset($_SESSION["loggedIn"]);
     unset($_SESSION["user_id"]);
   }
-
-
-
 }
 ?>

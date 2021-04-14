@@ -2,9 +2,7 @@
 require './utilities/connection.php';
 require 'setenv.php';
 
-session_start();
-
-if(!isset($_SESSION['loggedin'])){
+if(!isset($_SESSION['loggedIn'])){
     header('Location: login.php');
     exit;
 } ?>
