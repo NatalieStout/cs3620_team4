@@ -12,6 +12,8 @@ class User implements \JsonSerializable{
   // Methods
   function __construct() {
   }
+  
+  // Getters and Setters
   function getUserId(){
     return $this->user_id;
   }
@@ -43,6 +45,7 @@ class User implements \JsonSerializable{
     return $this->password;
   }
 
+  // Methods for DAO
   function getUser($user_id){
     $this->user_id = $user_id;
     $userDAO = new userDAO();
@@ -65,6 +68,7 @@ class User implements \JsonSerializable{
     return $userDAO->checkLogin($username, $password);
   }
 
+  // Json Method
   public function jsonSerialize(){
     $vars = get_object_vars($this);
     return $vars;
