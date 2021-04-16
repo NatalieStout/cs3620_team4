@@ -4,7 +4,7 @@ require_once('./header.php');
 
 if(isset($_GET['task_id'])){
     //get the tasks from the database
-    $stmt = $task->prepare('SELECT * FROM tasks WHERE task_id = ?');
+    $stmt = $task->prepare('SELECT * FROM task WHERE task_id = ?');
     $stmt->execute([$_GET['task_id']]);
     $contact = $stmt->fetch(PDO::FETCH_ASSOC);
     if(!$contact){
@@ -29,7 +29,7 @@ if(isset($_GET['task_id'])){
 
 ?>
 
-<?= template_header('Contact Update') ?>
+<?= template_header('task Update') ?>
 
     <!-- START PAGE CONTENT -->
     <h1 class="title">Task Update</h1>
