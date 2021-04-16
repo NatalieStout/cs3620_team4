@@ -1,38 +1,21 @@
 <?php
-require 'utilities/connection.php';
+require './utlities/connection.php';
 require_once('./header.php');
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-if(isset($_GET['task_id'])){
-    //get the tasks from the database
-    $stmt = $task->prepare('SELECT * FROM task WHERE task_id = ?');
-    $stmt->execute([$_GET['task_id']]);
-    $contact = $stmt->fetch(PDO::FETCH_ASSOC);
-    if(!$contact){
-        exit('Task does not exist');
-    }
+require_once('./sessioncheck.php');
 
-    if(!empty($_POST)) {
-        $task_name = isset($_POST['task_name']) ? $_POST['task_name'] : '';
-        $task_start = isset($_POST['task_start']) ? $_POST['task_start'] : '';
-        $task_end = isset($_POST['task_end']) ? $_POST['task_end'] : '';
-        $task_description = isset($_POST['task_description']) ? $_POST['task_description'] : '';
+require_once('./task/task.php');
 
-        $stmt = $task->prepare('UPDATE tasks SET task_id = ?, task_name = ?, task_start = ?, task_end = ?, task_description = ? WHERE task_id = ?');
-        $stmt->execute([$_GET['task_id'], $task_name, $task_start, $task_end, $task_description, $_GET['task_id']]);
-        $msg = 'Update successfully!';
-    }
+$task = new task();
+$tasks = $task->updateTask($_GET["task_id"], $_SESSION["user_id"]);  
 
-} else {
-    exit('No ID specified');
-}
-
+header("Location: ./dashboard.php?update=true");
 
 ?>
 
-<?= template_header('task Update') ?>
-
-    <!-- START PAGE CONTENT -->
-    <h1 class="title">Task Update</h1>
+<h1 class="title">Task Update</h1>
     <form method="POST" action="insert_task.php"> 
 
     <div class="input-group flex-nowrap">
