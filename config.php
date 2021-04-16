@@ -59,12 +59,6 @@ EOT;
                   </a>
                   EOT;
                 }
-                echo <<<EOT
-                <a href="contact.php" class="button is-link">
-                  <span class="icon"><i class="fas fa-address-book"></i></span>
-                  <span>Contact Us</span>
-                </a>
-                EOT;
                 if ($session == true) {
                   echo <<<EOT
                   <a href="logout.php" class="button">
@@ -75,7 +69,7 @@ EOT;
                 } else if ($session == false) {
                   echo <<<EOT
                   <a href="login.php" class="button is-success">
-                    <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                    <span class="icon"><i class="fas fa-user"></i></span>
                     <span>Login</span>
                   </a>
                   EOT;
