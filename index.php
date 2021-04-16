@@ -11,8 +11,8 @@ session_start();
 <?= template_nav(isset($_SESSION['loggedin'])) ?>
 
     <!-- START PAGE CONTENT -->
-    <h1 class="title">Home Page</h1>
-    <p>Welcome! This is where page content goes.</p>
+    <h1 class="title">Tasks</h1>
+    <p>Please login to see your tasks!</p>
     <!-- END PAGE CONTENT -->
 
 <?= template_footer() ?>
