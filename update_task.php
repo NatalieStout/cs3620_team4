@@ -1,10 +1,11 @@
 <?php
 require 'utilities/connection.php';
 require_once('./header.php');
-if(isset($_GET['id'])){
-    //get the contact from the database
-    $stmt = $pdo->prepare('SELECT * FROM tasks WHERE id = ?');
-    $stmt->execute([$_GET['id']]);
+
+if(isset($_GET['task_id'])){
+    //get the tasks from the database
+    $stmt = $task->prepare('SELECT * FROM tasks WHERE task_id = ?');
+    $stmt->execute([$_GET['task_id']]);
     $contact = $stmt->fetch(PDO::FETCH_ASSOC);
     if(!$contact){
         exit('Task does not exist');
@@ -16,8 +17,8 @@ if(isset($_GET['id'])){
         $task_end = isset($_POST['task_end']) ? $_POST['task_end'] : '';
         $task_description = isset($_POST['task_description']) ? $_POST['task_description'] : '';
 
-        $stmt = $pdo->prepare('UPDATE tasks SET id = ?, task_name = ?, task_start = ?, task_end = ?, task_description = ? WHERE id = ?');
-        $stmt->execute([$_GET['id'], $task_name, $task_start, $task_end, $task_description, $_GET['id']]);
+        $stmt = $task->prepare('UPDATE tasks SET task_id = ?, task_name = ?, task_start = ?, task_end = ?, task_description = ? WHERE task_id = ?');
+        $stmt->execute([$_GET['task_id'], $task_name, $task_start, $task_end, $task_description, $_GET['task_id']]);
         $msg = 'Update successfully!';
     }
 
@@ -35,15 +36,15 @@ if(isset($_GET['id'])){
     <form method="POST" action="insert_task.php"> 
 
     <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">Task Name</span>
+        <span class="input-group-text" task_id="addon-wrapping">Task Name</span>
         <input type="text" class="form-control" name="task_name" placeholder="Task Name"/>
     </div>
     <div class="input-group">
-        <span class="input-group-text" id="addon-wrapping">Start Date</span>
+        <span class="input-group-text" task_id="addon-wrapping">Start Date</span>
         <input type="datetime-local" class="form-control" name="task_start"/>
     </div>
     <div class="input-group">
-        <span class="input-group-text" id="addon-wrapping">End Date</span>
+        <span class="input-group-text" task_id="addon-wrapping">End Date</span>
         <input type="datetime-local" class="form-control" name="task_end"/>
     </div>
     <label class="input-group-text">Task Description</label>
