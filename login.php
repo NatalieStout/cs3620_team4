@@ -56,7 +56,7 @@ if (isset($_GET['msg'], $_GET['err'])) {
     </form>
     <p class="mt-5">
         <a href="register.php" class="button is-link is-small" title="Sign Up"><span class="icon mr-1"><i class="fas fa-user-plus"></i></span> Sign Up</a>
-        <a href="#" class="button is-link is-small" title="Forgot Password"><span class="icon mr-1"><i class="fas fa-key"></i></span> Forgot Password</a>
+        <!-- <a href="#" class="button is-link is-small" title="Forgot Password"><span class="icon mr-1"><i class="fas fa-key"></i></span> Forgot Password</a> -->
         <a href="contact.php" class="button is-link is-small" title="Need Help">Need Help <span class="icon ml-1"><i class="fas fa-question-circle"></i></span></a>
     </p>
     <!-- END PAGE CONTENT -->
