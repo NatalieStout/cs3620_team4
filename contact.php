@@ -61,7 +61,7 @@ if (isset($_POST['email'], $_POST['name'], $_POST['subject'], $_POST['msg'])) {
                 </div>
                 <div class="field">
                     <div class="control">
-                        <button class="button is-link">
+                        <button class="button is-success">
                             <span class="icon">
                                 <i class="fas fa-paper-plane"></i>
                             </span>
