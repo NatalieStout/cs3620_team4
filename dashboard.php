@@ -1,6 +1,7 @@
 
 <?php
 require_once('./header.php');
+
 echo '<h1 class="title" style="margin-top: 10px; margin-left: 50px;">Tasks</h1>';
 
 if(isset($_GET["del"]) AND $_GET["del"] == "true"){
