@@ -10,6 +10,6 @@ $user->setLastName($_POST["lastName"]);
 $user->setPassword($_POST["password"]);
 $user->createUser();
 
-header("Location: ./login.html")
+header("Location: ./login.php")
 
 ?>

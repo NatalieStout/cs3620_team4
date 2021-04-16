@@ -47,10 +47,10 @@ function getTaskDesc(){
 function setTaskDesc($task_description){
     $this->task_description = $task_description;
 }
-function getTaskUserId(){
+function getUserId(){
     return $this->user_id;
 }
-function setTaskUserId($user_id){
+function setUserId($user_id){
     $this->user_id = $user_id;
 }
 function getFamilyMemberId(){
@@ -58,6 +58,10 @@ function getFamilyMemberId(){
 }
 function setFamilyMemberId($family_member_id){
     $this->family_member_id = $family_member_id;
+}
+
+function __toString(){
+    return $this->task_name;
 }
 
 

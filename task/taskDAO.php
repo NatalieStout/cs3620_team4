@@ -31,16 +31,15 @@ function createTask($task, $user_id){
     `task_start`,
     `task_end`,
     `task_description`,
-    'user_id') VALUES (?, ?, ?, ?, ?)");
+    `user_id`) VALUES (?, ?, ?, ?, ?)");
 
     $name = $task->getTaskName();
     $start = $task->getTaskStart();
     $end = $task->getTaskEnd();
     $desc = $task->getTaskDesc();
-    $task->setTaskUserId();
+    $user_id = $task->getUserId();
 
-
-    $stmt->bind_param("sssss", $name, $start, $end, $desc, $user_id);
+    $stmt->bind_param('sssss', $name, $start, $end, $desc, $user_id);
     $stmt->execute();
    
     $stmt->close();
@@ -51,8 +50,8 @@ function createTask($task, $user_id){
   function deleteTask($task_id, $user_id){
     require_once('./utilities/connection.php');
     
-    $sql = "DELETE FROM team4projet.task WHERE task_id = " . $task_id . "AND user_id = " . $user_id .";";
-    
+    $sql = "DELETE FROM team4project.task WHERE task_id = " . $task_id . " AND user_id = " . $user_id . ";";
+
     if($conn->query($sql) == TRUE){
         echo "Task Deleted";
     }else{
@@ -64,8 +63,8 @@ function createTask($task, $user_id){
 
 
   function getTaskByUserId($user_id){
-        require_once('./utlities/connection.php');
-        require_once('./task/task/php');
+        require_once('./utilities/connection.php');
+        require_once('./task/task.php');
 
         $sql = "SELECT task_id, task_name, task_start, task_end, task_description FROM team4project.task where user_id =" . $user_id;
         $result = $conn->query($sql);
