@@ -31,7 +31,7 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
                 $uniqid = uniqid();
                 $stmt->bind_param('ssss', $_POST['first_name'], $_POST['last_name'], $_POST['username'], $password);
                 $stmt->execute();
-                message("Account successfully created!", 'register.php', false);
+                message("Account successfully created!", 'login.php', false);
         $stmt->close();
     } else {
         message('Error: Could not prepare statement!', 'register.php', true);

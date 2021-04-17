@@ -90,8 +90,8 @@ function createTask($task, $user_id){
     }
 
     function updateTask($task_id){
-        require_once('./utlities/connection.php');
-        require_once('./task/task/php');
+        require_once('./utilities/connection.php');
+        require_once('./task/task.php');
         
 
         $sql = "UPDATE task_name, task_start, task_end, task_description, familey_member_id FROM team4project.task WHERE task_id =" . $task_id;

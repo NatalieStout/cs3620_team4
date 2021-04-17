@@ -10,8 +10,8 @@ require_once('./sessioncheck.php');
 require_once('./task/task.php');
 
 $task = new task();
-$tasks = $task->deleteTask($_GET["task_id"], $_SESSION["user_id"]);  
+$tasks = $task->updateTask($_GET["task_id"], $_SESSION["user_id"]);  
 
 
-header("Location: ./dashboard.php?del=true");
+header("Location: ./dashboard.php");
 ?>
