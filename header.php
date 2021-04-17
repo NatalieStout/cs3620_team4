@@ -39,7 +39,7 @@ require_once("sessioncheck.php");
                     <div class="navbar-item">
                         <div class="buttons">
                             <a href="logout.php" class="button is-success">
-                                <span class="icon"><i class="fas fa-user"></i></span>
+                                <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
                                 <span>Logout</span>
                             </a>
                         </div>
