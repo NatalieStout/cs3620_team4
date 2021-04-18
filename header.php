@@ -25,6 +25,12 @@ require_once("sessioncheck.php");
               </span>
                     <span>Create Task</span>
                 </a>
+                <a class="navbar-item" href="create_family_member.php">
+                    <span class="icon is-large">
+                <i class="fas fa-plus"></i>
+              </span>
+                    <span>Add Family Member</span>
+                </a>
                 <div class="navbar-burger burger" data-target="navMenu">
                     <span></span>
                     <span></span>
