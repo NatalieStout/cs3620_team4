@@ -28,7 +28,7 @@ function template_nav($session)
 {
 echo <<<EOT
   <!-- START NAV -->
-    <nav class="navbar is-light">
+    <nav class="navbar is-white">
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="login.php">
@@ -37,6 +37,7 @@ echo <<<EOT
             </span>
             <span>Home</span>
           </a>
+          
           <div class="navbar-burger burger" data-target="navMenu">
             <span></span>
             <span></span>
@@ -71,6 +72,10 @@ EOT;
                   <a href="login.php" class="button is-success">
                     <span class="icon"><i class="fas fa-user"></i></span>
                     <span>Login</span>
+                  </a>
+                  <a href="register.php" class="button is-success">
+                    <span class="icon"><i class="fas fa-user"></i></span>
+                    <span>Register</span>
                   </a>
                   EOT;
                 }

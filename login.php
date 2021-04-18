@@ -32,7 +32,7 @@ if (isset($_GET['msg'], $_GET['err'])) {
       <div class="columns is-centered">
         <div class="column is-5-tablet is-4-desktop is-3-widescreen">
 
-    <form action="authentication.php" method="POST" class="box">
+    <form action="authentication.php" method="POST" class="box has-background-light">
         <div class="field">
         <label class="label">Username</label>
             <p class="control has-icons-left">
