@@ -3,6 +3,7 @@
 require_once('./header.php');
 require_once('./config.php');
 
+
 echo '<h1 class="title" style="margin-top: 10px; margin-left: 50px;">Tasks</h1>';
 
 if(isset($_GET["del"]) AND $_GET["del"] == "true"){
@@ -19,7 +20,6 @@ if(isset($_GET["del"]) AND $_GET["del"] == "true"){
   
           $arrlength = count($tasks);
 
-  
           for($x = 0; $x < $arrlength; $x++) {
               echo '<div class="card" style="width: 18rem; padding: 30px; margin-top: 20px; margin-left: 50px;">
                       <div class="card-body">
