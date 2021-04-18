@@ -1,16 +1,15 @@
 <?php
 require 'config.php';
+require_once('./header.php');
 
 
 ?>
-
-<?= template_header('Create Family Member') ?>
-<?= template_nav(isset($_SESSION['loggedin'])) ?>
 
 <div class = "columns">
 
     <div class = "column" >
         <!-- START PAGE CONTENT -->
+        <div style="margin: 150px; margin-top: 25px;">
         <h1 class="title">Create Contact</h1>
 
         <form action="" method="POST">
@@ -39,11 +38,12 @@ require 'config.php';
 
                <div class="field">
                 <div class="control">
-                    <button class="button is-link">Submit</button>
+                    <button class="button is-success">Submit</button>
                 </div>
             </div>
         </form>
     </div>
+</div>
 </div>
     <!-- END PAGE CONTENT -->
 
