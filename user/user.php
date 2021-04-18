@@ -63,7 +63,7 @@ class User implements \JsonSerializable{
     $userDAO->deleteUser($username);
   }
 
-   function checkLogin($username, $password){
+  function checkLogin($username, $password){
     $userDAO = new userDAO();
     return $userDAO->checkLogin($username, $password);
   }

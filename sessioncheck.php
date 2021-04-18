@@ -6,10 +6,13 @@ error_reporting(E_ALL);
 session_start();
 
 if(! isset($_SESSION["loggedIn"])){
-    header("Location: login.html");
+    header("Location: login.php");
     end();
 }
     
+
+
+?>
 
 
 ?>

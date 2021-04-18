@@ -1,6 +1,5 @@
 <?php
 require 'config.php';
-require 'utilities/connection.php';
 
 $msg = "";
 $err = false;

@@ -21,12 +21,16 @@ class UserDAO {
 
   function checkLogin($passedinusername, $passedinpassword){
     require_once('./utilities/connection.php');
+    $hashedPassword = hash("sha256", $passedinpassword);
     $user_id = 0;
-    $sql = "SELECT user_id FROM user WHERE username = '" . $passedinusername . "' AND password = '" . hash("sha256", trim($passedinpassword)) . "'";
+    //echo "username: " . $passedinusername . " password: " .$hashedPassword;
+    
+    $sql = "SELECT user_id FROM team4project.user WHERE username ='" . $passedinusername . "' AND password ='" . $hashedPassword . "'";
+    //echo " sql Statement: " . $sql;
 
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
+    if ($result->num_rows == 1) {
       while($row = $result->fetch_assoc()) {
         $user_id = $row["user_id"];
       }

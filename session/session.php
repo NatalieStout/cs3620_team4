@@ -12,12 +12,11 @@ class session {
       return true;
     }
     else{
-      unset($_SESSION["loggedIn"]);
-      unset($_SESSION["user_id"]);
+      logout();
       return false;
     }
   }
-  function logout() {
+  function logout(){
     unset($_SESSION["loggedIn"]);
     unset($_SESSION["user_id"]);
   }

@@ -80,6 +80,11 @@ function getAllTasks(){
     return $taskDAO->getAllTasks();
 }
 
+function getTaskById($task_id){
+    $taskDAO = new taskDAO();
+    return $taskDAO->getTaskById($task_id);
+}
+
 function createTask($user_id){
     // Craetes a new Task
     $taskDAO = new taskDAO();

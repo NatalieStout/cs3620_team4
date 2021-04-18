@@ -23,6 +23,33 @@ function getAllTasks(){
 
 }
 
+function getTaskById($task_id){
+    require_once('./utilities/connection.php');
+    
+    $sql = "SELECT task_name, task_start, task_end, task_description, task_id FROM task WHERE task_id =" . $task_id;
+    $result = $conn->query($sql);
+
+
+    $tasks = [];
+    $index = 0;
+
+     if ($result->num_rows > 0){
+         while($row = $result->fetch_assoc()){
+            $task = new task();
+
+            $task->setTaskId($row["task_id"]);
+            $task->setTaskName($row["task_name"]);
+            $task->setTaskStart($row["task_start"]);
+            $task->setTaskEnd($row["task_end"]);
+            $task->setTaskDesc($row["task_description"]);
+            $tasks[$index] = $task;
+            $index++;
+        }
+    }
+    $conn->close();
+    return $tasks;
+}
+
 function createTask($task, $user_id){
     require_once('./utilities/connection.php');
 
@@ -89,21 +116,21 @@ function createTask($task, $user_id){
         return $tasks;
     }
 
-    function updateTask($task_id){
+    function updateTask($task){
         require_once('./utilities/connection.php');
         require_once('./task/task.php');
-        
 
-        $sql = "UPDATE task_name, task_start, task_end, task_description, familey_member_id FROM team4project.task WHERE task_id =" . $task_id;
-        
-        if($conn->query($sql) == TRUE){
+       $sql = 'UPDATE team4project.task
+       SET task_name = '.$task->getTaskName().', task_start= '.$task->getTaskStart().', task_end='.$task->getTaskEnd().', task_description='.$task->getTaskDesc().', family_member_id='.$task->getFamilyMemberId().'
+       WHERE task_id = '.$task->getTaskId().';';
+       
+       if($conn->query($sql) == TRUE){
             echo "Task Updated";
         }else{
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
-    
-        $conn->close();
-        
+
+       $conn->close(); 
     }
 
   

@@ -12,32 +12,6 @@ if (isset($_GET['msg'], $_GET['err'])) {
 }
 
 
-if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST['password'])){
-    
-    if ($stmt = $conn->prepare('SELECT user_id, password FROM user WHERE username = ?')) {
-        
-        $stmt->bind_param('s', $_POST['username']);
-        $stmt->execute();
-        $stmt->store_result();
-        
-        if ($stmt->num_rows() > 0) {
-            
-            message('Username exists, please choose another!', 'register.php', true);
-        } else {
-            
-            if ($stmt = $conn->prepare('INSERT INTO user (first_name, last_name, username, password) VALUES (?, ?, ?, ?)')) {
-                
-                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                $uniqid = uniqid();
-                $stmt->bind_param('ssss', $_POST['first_name'], $_POST['last_name'], $_POST['username'], $password);
-                $stmt->execute();
-                message("Account successfully created!", 'login.php', false);
-        $stmt->close();
-    } else {
-        message('Error: Could not prepare statement!', 'register.php', true);
-    }
-    $conn->close();
-}}}
 
 ?>
 
@@ -55,7 +29,7 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
         </div>
     <?php endif; ?>
     <h1 class="title">Register</h1>
-    <form action="register.php" method="POST">
+    <form action="user_insert.php" method="POST">
         <div class="field">
             <p class="control has-icons-left">
                 <input name="first_name" class="input" type="text" placeholder="First Name" required>
