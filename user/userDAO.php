@@ -20,7 +20,15 @@ class UserDAO {
   }
 
   function checkLogin($passedinusername, $passedinpassword){
-    require_once('./utilities/connection.php');
+    require 'setenv.php';
+
+$SERVER_NAME = 'cs3620-team4finalproject.mysql.database.azure.com';
+$DATABASE_USER = $_SESSION['SQLUSER'];
+$DATABASE_PASS = $_SESSION['SQLPW'];
+$DATABASE_NAME = 'team4project';
+
+$conn = mysqli_connect($SERVER_NAME, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+
     $hashedPassword = hash("sha256", $passedinpassword);
     $user_id = 0;
     //echo "username: " . $passedinusername . " password: " .$hashedPassword;
