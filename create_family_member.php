@@ -10,10 +10,10 @@ require_once('./header.php');
     <div class = "column" >
         <!-- START PAGE CONTENT -->
         <div style="margin: 150px; margin-top: 25px;">
-        <h1 class="title">Create Contact</h1>
+        <h1 class="title">Add Family Member</h1>
 
         <form action="insert_family_member.php" method="POST">
-            <div class="field">
+            <div class="field" style="width: 350px;">
                 <label class="label">Name</label>
                 <div class="control">
                     <input class="input" type="text" name="name" placeholder="Name" required>
