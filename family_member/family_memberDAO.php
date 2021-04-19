@@ -1,7 +1,14 @@
 <?php
 class Family_MemberDAO {
   function getFamilyMemberByUserId($user_id){
-    require_once('./utilities/connection.php');
+    require 'setenv.php';
+
+$SERVER_NAME = 'cs3620-team4finalproject.mysql.database.azure.com';
+$DATABASE_USER = $_SESSION['SQLUSER'];
+$DATABASE_PASS = $_SESSION['SQLPW'];
+$DATABASE_NAME = 'team4project';
+
+$conn = mysqli_connect($SERVER_NAME, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
     
     $sql = "SELECT family_member_id, user_id, family_member_name, family_member_color FROM family_member WHERE user_id =" . $user_id;
     $result = $conn->query($sql);

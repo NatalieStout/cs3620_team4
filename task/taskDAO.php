@@ -58,15 +58,17 @@ function createTask($task, $user_id){
     `task_start`,
     `task_end`,
     `task_description`,
-    `user_id`) VALUES (?, ?, ?, ?, ?)");
+    `user_id`,
+    `family_member_id`) VALUES (?, ?, ?, ?, ?, ?)");
 
     $name = $task->getTaskName();
     $start = $task->getTaskStart();
     $end = $task->getTaskEnd();
     $desc = $task->getTaskDesc();
     $user_id = $task->getUserId();
+    $family_member_id = $task->getFamilyMemberId();
 
-    $stmt->bind_param('sssss', $name, $start, $end, $desc, $user_id);
+    $stmt->bind_param('ssssss', $name, $start, $end, $desc, $user_id, $family_member_id);
     $stmt->execute();
    
     $stmt->close();
@@ -120,9 +122,7 @@ function createTask($task, $user_id){
         require_once('./utilities/connection.php');
         require_once('./task/task.php');
 
-       $sql = 'UPDATE team4project.task
-       SET task_name = '.$task->getTaskName().', task_start= '.$task->getTaskStart().', task_end='.$task->getTaskEnd().', task_description='.$task->getTaskDesc().', family_member_id='.$task->getFamilyMemberId().'
-       WHERE task_id = '.$task->getTaskId().';';
+       $sql = 'UPDATE team4project.task SET task_name ="'.$task->getTaskName().'", task_start= "'.$task->getTaskStart().'", task_end="'.$task->getTaskEnd().'", task_description="'.$task->getTaskDesc().'", family_member_id='.$task->getFamilyMemberId().' WHERE task_id = '.$task->getTaskId().';';
        
        if($conn->query($sql) == TRUE){
             echo "Task Updated";

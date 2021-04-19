@@ -1,7 +1,7 @@
 
 <?php
 require_once('./header.php');
-
+require_once('./family_member/family_member.php');
 require_once('./task/task.php');
 //echo $_GET["task_id"];
 
@@ -9,14 +9,16 @@ $task = new task();
 $tasks = $task->getTaskById($_GET["task_id"]);  
 $task->__toString();
 
+$family_member = new family_member();
+$family = $family_member->getFamilyMembers($_SESSION['user_id']);
 
 $arrlength = count($tasks);
-
+$familylength = count($family);
   
 for($x = 0; $x < $arrlength; $x++) {
     echo ' <div style="margin: 150px; margin-top: 25px;">
     <h1 class="title" >Edit Task</h1> 
-    <form action="update_task.php" method="POST">
+    <form action="update_task.php?task_id='. $tasks[$x]->getTaskId() .'" method="POST">
         <div class="field">
             <label class="label">Task Name</label>
             <div class="control">
@@ -26,10 +28,12 @@ for($x = 0; $x < $arrlength; $x++) {
         <div class="field">
         <label class="label">Select Family Member</label>
             <div class="class="control">
-                <select>
-                    <option>Select dropdown</option>
-                    <option><?php $family_member_name; ?></option>
-                </select>
+                <select name="family_member_id">
+                    <option value="0">Select dropdown</option>]';
+                    for($y = 0; $y < $familylength; $y++){
+                    echo '<option value="'. $family[$y]->getFamilyMemberId() .'">' . $family[$y]->getFamilyMemberName() . '</option>';
+                    }
+                echo '</select>
             </div>
         </div>
         <div class="field">

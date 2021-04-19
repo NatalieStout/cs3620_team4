@@ -16,9 +16,10 @@ $task->setTaskEnd($_POST["task_end"]);
 
 //$user_id = $_SESSION["user_id"];
 //echo " user id: " . $_SESSION["user_id"];
-
-
 $task->setUserId($_SESSION["user_id"]);
+
+$task->setFamilyMemberId($_POST['family_member_id']);
+//echo "family Member Id: " . $_POST['family_member_id'];
 
 $task->setTaskDesc($_POST["task_description"]);
 //echo " desc: " . $_POST["task_description"];

@@ -10,3 +10,4 @@ $conn = mysqli_connect($SERVER_NAME, $DATABASE_USER, $DATABASE_PASS, $DATABASE_N
 if(mysqli_connect_errno()) {
   exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
+?>
