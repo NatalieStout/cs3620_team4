@@ -13,6 +13,3 @@ if(! isset($_SESSION["loggedIn"])){
 
 
 ?>
-
-
-?>
