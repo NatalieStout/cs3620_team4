@@ -46,16 +46,16 @@ class Family_Member implements \JsonSerializable{
         return $family_memberDAO->getFamilyMemberByUserId($user_id);
     }
 
-    function createFamilyMember($family_member, $user_id){
+    function createFamilyMember($family_member){
         // This function will create a new family member
         $family_memberDAO = new family_memberDAO();
-        return $family_memberDAO->createFamilyMember($family_member, $user_id);
+        return $family_memberDAO->createFamilyMember($family_member);
     }
 
-    function deleteFamilyMember($family_member_id, $user_id){
+    function deleteFamilyMember($family_member, $user_id){
         // This function will delete a existing family member
         $family_memberDAO = new family_memberDAO();
-        return $family_memberDAO->deleteFamilyMember($family_member_id, $user_id);
+        return $family_memberDAO->deleteFamilyMember($family_member, $user_id);
     }
 
     function updateFamilyMember($family_member_id){

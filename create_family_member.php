@@ -12,7 +12,7 @@ require_once('./header.php');
         <div style="margin: 150px; margin-top: 25px;">
         <h1 class="title">Create Contact</h1>
 
-        <form action="" method="POST">
+        <form action="insert_family_member.php" method="POST">
             <div class="field">
                 <label class="label">Name</label>
                 <div class="control">
@@ -22,14 +22,14 @@ require_once('./header.php');
             
             <div class="control">
                 <div class="select">
-                    <select>
+                    <select name="color">
                     <option>Family Member Color</option>
-                    <option>Red</option>
-                    <option>Orange</option>
-                    <option>Yellow</option>
-                    <option>Green</option>
-                    <option>Blue</option>
-                    <option>Purple</option>
+                    <option value='FF0000'>Red</option>
+                    <option value='FFA500'>Orange</option>
+                    <option value='FFFF00'>Yellow</option>
+                    <option value='00ff00'>Green</option>
+                    <option value='0000FF'>Blue</option>
+                    <option value='800080'>Purple</option>
                     </select>
                 </div>
                 </div>

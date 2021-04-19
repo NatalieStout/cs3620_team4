@@ -25,7 +25,7 @@ class Family_MemberDAO {
     return $familyMembers;
   }
 
-  function createFamilyMember($family_member, $user_id){
+  function createFamilyMember($family_member){
     require_once('./utilities/connection.php');
 
     // prepare and bind
@@ -33,9 +33,9 @@ class Family_MemberDAO {
     `user_id`,
     `family_member_color`) VALUES (?, ?, ?)");
 
-    $name = $family_member->getFamilyMemberkName();
-    $color = $family_member->getFamilyMemberkColor();
-    $family_member->setUserId($user_id);
+    $name = $family_member->getFamilyMemberName();
+    $color = $family_member->getFamilyMemberColor();
+    $user_id = $family_member->getUserId();
 
 
     $stmt->bind_param("sss", $name, $user_id, $color);
