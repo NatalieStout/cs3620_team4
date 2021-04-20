@@ -19,19 +19,30 @@ if(isset($_GET["del"]) AND $_GET["del"] == "true"){
           $tasks = $task->getTasks($_SESSION["user_id"]);  
 
           $family_member = new family_member();
-          $family_members = $family_member->getFamilyMemberName($_SESSION["user_id"]);
+          $family = $family_member->getFamilyMembers($_SESSION['user_id']);
   
           $arrlength = count($tasks);
-          $arrlength = count($family_members);
-
+          $familyLength = count($family);
   
           for($x = 0; $x < $arrlength; $x++) {
               echo '<div class="card" style="width: 18rem; padding: 30px; margin-top: 20px; margin-left: 150px;">
                       <div class="card-body">
-                          <h5 class="card-title" style="font-size: 20px; font-weight: bold;">' . $tasks[$x]->getTaskName() . '</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">' . $family_members[$x]->getFamilyMemberName() . '</h6>
-                          <hr style="background-color: ' . $family_members[$x]->getFamilyMemberColor() . ' ">
-                          <h6 class="card-subtitle mb-2 text-muted">Start: ' . $tasks[$x]->getTaskStart() . '</h6>
+                          <h5 class="card-title" style="font-size: 20px; font-weight: bold;">' . $tasks[$x]->getTaskName() . '</h5>';
+                          foreach($family as &$fm){
+                            if($tasks[$x]->getFamilyMemberId() ==  $fm->getFamilyMemberId()){
+                              echo '<h6 class="card-subtitle mb-2 text-muted">Assigned To: ' . $fm->getFamilyMemberName() . '</h6>';
+                            }
+                         }
+                         unset($fm);
+                         //echo '<h6 class="card-subtitle mb-2 text-muted">Assigned To: ' . $family[$x]->getFamilyMemberName() . '</h6>';
+                         foreach($family as &$fm){
+                          if($tasks[$x]->getFamilyMemberId() ==  $fm->getFamilyMemberId()){
+                              echo '<hr style="background-color:#'. $fm->getFamilyMemberColor() .'">';
+                            }
+                          }
+                          unset($fm);
+                          //echo '<hr style="background-color:#'. $family[$x]->getFamilyMemberColor() .'">';
+                          echo '<h6 class="card-subtitle mb-2 text-muted">Start: ' . $tasks[$x]->getTaskStart() . '</h6>
                           <h6 class="card-subtitle mb-2 text-muted">End: ' . $tasks[$x]->getTaskEnd() . '</h6>
                           <p class="card-text">' . $tasks[$x]->getTaskDesc() . '</p>
                           <br>

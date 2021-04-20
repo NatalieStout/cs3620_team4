@@ -95,7 +95,7 @@ function createTask($task, $user_id){
         require_once('./utilities/connection.php');
         require_once('./task/task.php');
 
-        $sql = "SELECT task_id, task_name, task_start, task_end, task_description FROM team4project.task where user_id =" . $user_id;
+        $sql = "SELECT task_id, task_name, task_start, task_end, task_description, family_member_id FROM team4project.task where user_id =" . $user_id;
         $result = $conn->query($sql);
 
         $tasks = [];
@@ -110,6 +110,8 @@ function createTask($task, $user_id){
                 $task->setTaskStart($row["task_start"]);
                 $task->setTaskEnd($row["task_end"]);
                 $task->setTaskDesc($row["task_description"]);
+                $task->setFamilyMemberId($row["family_member_id"]);
+
                 $tasks[$index] = $task;
                 $index++;
             }
