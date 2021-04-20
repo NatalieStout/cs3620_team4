@@ -25,29 +25,26 @@ if(isset($_GET["del"]) AND $_GET["del"] == "true"){
           $familyLength = count($family);
   
           for($x = 0; $x < $arrlength; $x++) {
-              echo '<div class="card" style="width: 18rem; padding: 30px; margin-top: 20px; margin-left: 150px;">
-                      <div class="card-body">
-                          <h5 class="card-title" style="font-size: 20px; font-weight: bold;">' . $tasks[$x]->getTaskName() . '</h5>';
-                          foreach($family as &$fm){
-                            if($tasks[$x]->getFamilyMemberId() ==  $fm->getFamilyMemberId()){
-                              echo '<h6 class="card-subtitle mb-2 text-muted">Assigned To: ' . $fm->getFamilyMemberName() . '</h6>';
-                            }
-                         }
-                         unset($fm);
-                         //echo '<h6 class="card-subtitle mb-2 text-muted">Assigned To: ' . $family[$x]->getFamilyMemberName() . '</h6>';
-                         foreach($family as &$fm){
-                          if($tasks[$x]->getFamilyMemberId() ==  $fm->getFamilyMemberId()){
-                              echo '<hr style="background-color:#'. $fm->getFamilyMemberColor() .'">';
-                            }
-                          }
-                          unset($fm);
-                          //echo '<hr style="background-color:#'. $family[$x]->getFamilyMemberColor() .'">';
-                          echo '<h6 class="card-subtitle mb-2 text-muted">Start: ' . $tasks[$x]->getTaskStart() . '</h6>
-                          <h6 class="card-subtitle mb-2 text-muted">End: ' . $tasks[$x]->getTaskEnd() . '</h6>
-                          <p class="card-text">' . $tasks[$x]->getTaskDesc() . '</p>
-                          <br>
-                          <a style="color: red;" href="delete_task.php?task_id=' . $tasks[$x]->getTaskId() . '" class="card-link">Delete</a>
-                          <a style="padding: 10px; color: #23d160;" href="edit_task.php?task_id=' . $tasks[$x]->getTaskId() . '" class="card-link">Edit</a>
+            foreach($family as &$fm){
+              if($tasks[$x]->getFamilyMemberId() ==  $fm->getFamilyMemberId()){
+                  echo '<div class="card" style="width: 18rem; padding: 30px; margin-top: 20px; margin-left: 150px; border: solid 10px #'. $fm->getFamilyMemberColor() .'; ">';
+                }
+              }
+              unset($fm);
+              echo '<div class="card-body">
+                <h5 class="card-title" style="font-size: 20px; font-weight: bold;">' . $tasks[$x]->getTaskName() . '</h5>';
+                  foreach($family as &$fm){
+                    if($tasks[$x]->getFamilyMemberId() ==  $fm->getFamilyMemberId()){
+                      echo '<h6 class="card-subtitle mb-2 text-muted">Assigned To: ' . $fm->getFamilyMemberName() . '</h6>';
+                  }
+                    }
+                  unset($fm);
+                    echo '<h6 class="card-subtitle mb-2 text-muted">Start: ' . $tasks[$x]->getTaskStart() . '</h6>
+                      <h6 class="card-subtitle mb-2 text-muted">End: ' . $tasks[$x]->getTaskEnd() . '</h6>
+                      <p class="card-text">' . $tasks[$x]->getTaskDesc() . '</p>
+                      <br>
+                      <a style="color: red;" href="delete_task.php?task_id=' . $tasks[$x]->getTaskId() . '" class="card-link">Delete</a>
+                      <a style="padding: 10px; color: #23d160;" href="edit_task.php?task_id=' . $tasks[$x]->getTaskId() . '" class="card-link">Edit</a>
 
                       </div>
                     </div>
