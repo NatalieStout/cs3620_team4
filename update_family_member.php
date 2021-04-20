@@ -15,5 +15,5 @@ $family_member->setFamilyMemberId($_GET['family_member_id']);
 
 $family_member->updateFamilyMember($family_member);
 
-//header("Location: ./create_family_member.php")
+header("Location: ./create_family_member.php")
 ?>
