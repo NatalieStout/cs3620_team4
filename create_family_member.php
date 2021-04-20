@@ -42,9 +42,30 @@ require_once('./header.php');
                 </div>
             </div>
         </form>
+
+        <?php
+    require_once('./family_member/family_member.php');
+    $family_member = new family_member();
+    $family = $family_member->getFamilyMembers($_SESSION['user_id']);
+
+    $familyLength = count($family);
+    echo '<h1>Family Members</h1>';
+    foreach($family as &$fm){
+        echo '<div>
+                <labal>'. $fm->getFamilyMemberName() .'</label>
+                <a href="edit_family_member.php?family_member_id='. $fm->getFamilyMemberId() .'">Edit</a>
+                <a href="delete_family_member.php?family_member_id='. $fm->getFamilyMemberId() .'">Delete</a>
+             </div>';
+
+    }
+
+
+?>
     </div>
 </div>
 </div>
     <!-- END PAGE CONTENT -->
+
+
 
 <?= template_footer() ?>

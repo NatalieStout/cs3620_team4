@@ -26,7 +26,7 @@ function getAllTasks(){
 function getTaskById($task_id){
     require_once('./utilities/connection.php');
     
-    $sql = "SELECT task_name, task_start, task_end, task_description, task_id FROM task WHERE task_id =" . $task_id;
+    $sql = "SELECT task_name, task_start, task_end, task_description, task_id, family_member_id FROM task WHERE task_id =" . $task_id;
     $result = $conn->query($sql);
 
 
@@ -42,6 +42,7 @@ function getTaskById($task_id){
             $task->setTaskStart($row["task_start"]);
             $task->setTaskEnd($row["task_end"]);
             $task->setTaskDesc($row["task_description"]);
+            $task->setFamilyMemberId($row["family_member_id"]);
             $tasks[$index] = $task;
             $index++;
         }

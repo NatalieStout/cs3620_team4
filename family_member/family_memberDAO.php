@@ -56,7 +56,7 @@ class Family_MemberDAO {
   function deleteFamilyMember($family_member_id, $user_id){
     require_once('./utilities/connection.php');
     
-    $sql = "DELETE FROM team4projet.family_member WHERE family_member_id = " . $family_member_id . "AND user_id = " . $user_id .";";
+    $sql = "DELETE FROM team4project.family_member WHERE family_member_id = " . $family_member_id . " AND user_id = " . $user_id .";";
     
     if($conn->query($sql) == TRUE){
         echo "Family Member Deleted";
@@ -67,12 +67,12 @@ class Family_MemberDAO {
     $conn->close();
   }
   
-  function updateFamilyMember($family_member_id){
-    require_once('./utlities/connection.php');
-    require_once('./task/task/php');
+  function updateFamilyMember($family_member){
+    require_once('./utilities/connection.php');
     
 
-    $sql = "UPDATE family_member_name, family_member_color FROM team4project.family_member WHERE family_member_id =" . $family_member_id;
+    $sql = 'UPDATE team4project.family_member SET family_member_name="'. $family_member->getFamilyMemberName() .'" , family_member_color="'. $family_member->getFamilyMemberColor() .'"
+    WHERE family_member_id = ' . $family_member->getFamilyMemberId() . ';';
     
     if($conn->query($sql) == TRUE){
         echo "Family Member Updated";

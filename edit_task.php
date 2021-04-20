@@ -25,8 +25,13 @@ for($x = 0; $x < $arrlength; $x++) {
                     </div>
                 </div>
                 <div class="field">
-            <label class="label">Select Family Member</label>
-                <div class="select">
+            <label class="label">Select Family Member</label>';
+            foreach($family as &$fm){
+                if($tasks[$x]->getFamilyMemberId() ==  $fm->getFamilyMemberId()){
+                    echo '<h2>Currently Assigned To: '. $fm->getFamilyMemberName() .'</h2>';
+                }
+             }
+               echo'<div class="select">
                     <select name="family_member_id">
                         <option value="0">Select dropdown</option>';
                         for($y = 0; $y < $familylength; $y++){

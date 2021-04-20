@@ -27,9 +27,9 @@ require_once("sessioncheck.php");
                 </a>
                 <a class="navbar-item" href="create_family_member.php">
                     <span class="icon is-large">
-                <i class="fas fa-plus"></i>
+                <i class="fas fa-list"></i>
               </span>
-                    <span>Add Family Member</span>
+                    <span>Manage Family Members</span>
                 </a>
                 <div class="navbar-burger burger" data-target="navMenu">
                     <span></span>
