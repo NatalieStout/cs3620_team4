@@ -33,39 +33,36 @@ require_once('./header.php');
                     </select>
                 </div>
                 </div>
-
                 <br>
-
-               <div class="field">
+                <div class="field">
                 <div class="control">
                     <button class="button is-success">Submit</button>
                 </div>
             </div>
-        </form>
-
-        <?php
+            </form>
+    <?php
     require_once('./family_member/family_member.php');
     $family_member = new family_member();
     $family = $family_member->getFamilyMembers($_SESSION['user_id']);
 
     $familyLength = count($family);
-    echo '<h1>Family Members</h1>';
+    echo '<h1 class="title" style="margin-top: 50px;">Current Family Members</h1>';
     foreach($family as &$fm){
         echo '<div>
-                <labal>'. $fm->getFamilyMemberName() .'</label>
-                <a href="edit_family_member.php?family_member_id='. $fm->getFamilyMemberId() .'">Edit</a>
-                <a href="delete_family_member.php?family_member_id='. $fm->getFamilyMemberId() .'">Delete</a>
+                <labal style="font-size: 17px;"><br>'. $fm->getFamilyMemberName() .'</label>
+                <a class="button is-small" style="color:#5cb85c;"  href="edit_family_member.php?family_member_id='. $fm->getFamilyMemberId() .'">Edit</a>
+                <a class="button is-small" style="color:red;  " href="delete_family_member.php?family_member_id='. $fm->getFamilyMemberId() .'">Delete</a>
              </div>';
 
     }
 
+        ?>
 
-?>
     </div>
 </div>
 </div>
-    <!-- END PAGE CONTENT -->
 
 
 
-<?= template_footer() ?>
+
+<?= template_footer() ?> 
