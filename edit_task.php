@@ -1,4 +1,3 @@
-//
 <?php
 require_once('./header.php');
 require_once('./family_member/family_member.php');
@@ -45,7 +44,7 @@ for($x = 0; $x < $arrlength; $x++) {
                 <div class="field" style="width: 250px;">
                     <label class="label">End Date</label>
                     <div class="control">
-                    <input type="datetime-local" value="' . $tasks[$x]->getTaskEnd() . ' class="input" name="task_end"/>
+                    <input type="datetime-local" value="' . $tasks[$x]->getTaskEnd() . '" class="input" name="task_end"/>
                     </div>
                 </div>
                 <div class="field" style="width: 600px;">
